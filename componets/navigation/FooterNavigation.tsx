@@ -7,22 +7,21 @@ const FavoriteRoute = () => <Text>Favorite</Text>
 const MemoRoute = () => <Text>Memo</Text>
 
 export default function FooterNavigation() {
-    const [index, setIndex] = React.useState(0);
-    const [routes] = React.useState([
-        {key: 'store', title: 'Store', focusedIcon: 'store', unfocusedIcon: 'store-outline'},
-        {key: 'favorite', title: 'Favorite', focusedIcon: 'heart', unfocusedIcon: 'heart-outline'},
-    ])
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    {key: 'store', title: 'Store', focusedIcon: 'store', unfocusedIcon: 'store-outline'},
+    {key: 'favorite', title: 'Favorite', focusedIcon: 'heart', unfocusedIcon: 'heart-outline'},
+  ])
 
-    const renderScene = BottomNavigation.SceneMap({
-        store: StoreRoute,
-        favorite: FavoriteRoute
-    })
+  const renderScene = BottomNavigation.SceneMap({
+    store: StoreRoute,
+    favorite: FavoriteRoute
+  })
 
-    return (
-        <BottomNavigation
-            navigationState={{ index, routes }}
-            onIndexChange={setIndex}
-            renderScene={renderScene}
-        />
-    )
+  return (
+    <BottomNavigation
+      navigationState={{ index, routes }}
+      onIndexChange={setIndex}
+      renderScene={renderScene} />
+  )
 }
