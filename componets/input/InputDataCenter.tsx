@@ -1,19 +1,15 @@
 import React from "react";
 import {SegmentedButtons} from "react-native-paper";
 import {StyleSheet, View} from "react-native";
+import {ChangeEventProps} from "../type/Typs";
 
-type ChangeEventProps = {
-  changeDCName: Function
-}
 
 export default function InputDataCenter(props: ChangeEventProps) {
 
   const [value, setValue] = React.useState('Mana')
 
   const onChangeEvent = (dcName :String) => {
-    if(props.changeDCName != undefined) {
-      props.changeDCName(dcName)
-    }
+    props.changeEvent(dcName)
     setValue(dcName)
   }
 
@@ -31,7 +27,6 @@ export default function InputDataCenter(props: ChangeEventProps) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
   }
